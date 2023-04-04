@@ -47,21 +47,7 @@ void SDLBase::Render() {
 		sprites[i].Render();
 	}
 
-/*	SDL_Texture* img = NULL;
-	int w, h;
-	img = IMG_LoadTexture(renderer, "Assets/SpiderSheet.png");
-	SDL_QueryTexture(img, NULL, NULL, &w, &h);
-	SDL_Rect textr;
-	textr.x = 0;
-	textr.y = 0;
-	textr.w = w * 2;
-	textr.h = h * 2;
-
-	SDL_RenderCopy(renderer, img, NULL, &textr);
-*/
-
 	SDL_RenderPresent(renderer);
-	//SDL_DestroyTexture(img);
 }
 
 void SDLBase::Logic() {

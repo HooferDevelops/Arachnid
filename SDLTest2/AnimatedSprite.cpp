@@ -40,3 +40,7 @@ void AnimatedSprite::Render() {
 
 	SDL_RenderCopy(base_renderer, texture, &sizeRect, &posRect);
 }
+
+void AnimatedSprite::Logic() {
+
+}

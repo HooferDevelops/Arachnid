@@ -5,6 +5,7 @@ class AnimatedSprite
 	public:
 		AnimatedSprite(SDL_Renderer* renderer, const char* dir);
 		void Render();
+		void Logic();
 		void SetSize(int x, int y);
 		void SetPosition(int x, int y);
 		void SetGridCount(int xC, int yC);
