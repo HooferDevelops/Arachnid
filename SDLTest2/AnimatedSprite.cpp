@@ -23,9 +23,21 @@ void AnimatedSprite::SetPosition(int x, int y) {
 	yPos = y;
 }
 
+void AnimatedSprite::SetSpeed(int interval) {
+	speed = interval;
+}
+
+void AnimatedSprite::GetPosition(int* x, int* y)
+{
+	x = (int*) xPos;
+	y = (int*) yPos;
+}
+
 void AnimatedSprite::Render() {
+	int ticks = SDL_GetTicks64() / speed;
+
 	SDL_Rect sizeRect = {
-		0,
+		(ticks % xCount) * xSize,
 		0,
 		xSize,
 		ySize

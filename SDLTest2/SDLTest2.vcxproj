@@ -119,6 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,10 +152,12 @@ XCOPY "$(SolutionDir)Resources\Assets" "$(TargetDir)\Assets\" /S /Y</Command>
     <ClCompile Include="AnimatedSprite.cpp" />
     <ClCompile Include="SDLBase.cpp" />
     <ClCompile Include="SDLTest2.cpp" />
+    <ClCompile Include="Spider.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimatedSprite.h" />
     <ClInclude Include="SDLBase.h" />
+    <ClInclude Include="Spider.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

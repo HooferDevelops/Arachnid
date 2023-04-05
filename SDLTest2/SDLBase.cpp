@@ -27,6 +27,10 @@ void SDLBase::CreateBaseWindow() {
 	SDL_Surface* screenSurface = NULL;
 
 	renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+
+	SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
+	SDL_RenderClear(renderer);
+	SDL_RenderPresent(renderer);
 }
 
 void SDLBase::Preload() {
@@ -34,17 +38,24 @@ void SDLBase::Preload() {
 	spider.SetSize(16, 16);
 	spider.SetGridCount(4, 4);
 	spider.SetPosition(125, 15);
+	spider.SetSpeed(100);
+
+	Spider test = Spider(renderer);
 
 	sprites.push_back(spider);
+	spiders.push_back(test);
 }
 
 void SDLBase::Render() {
 	SDL_SetRenderDrawColor(renderer, 255, 0, 255, 255);
-
 	SDL_RenderClear(renderer);
 
 	for (int i = 0; i < sprites.size(); i++) {
 		sprites[i].Render();
+	}
+
+	for (int i = 0; i < spiders.size(); i++) {
+		spiders[i].Render();
 	}
 
 	SDL_RenderPresent(renderer);
@@ -53,6 +64,10 @@ void SDLBase::Render() {
 void SDLBase::Logic() {
 	desktopWidth = GetSystemMetrics(SM_CXSCREEN);
 	desktopHeight = GetSystemMetrics(SM_CYSCREEN);
+
+	for (int i = 0; i < spiders.size(); i++) {
+		spiders[i].Logic();
+	}
 }
 
 bool SDLBase::Update() {

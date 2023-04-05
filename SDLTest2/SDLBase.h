@@ -3,8 +3,10 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_syswm.h>
-#include "AnimatedSprite.h"
 #include <vector>
+
+#include "AnimatedSprite.h"
+#include "Spider.h"
 
 class SDLBase
 {
@@ -23,5 +25,6 @@ private:
 	int desktopWidth;
 	int desktopHeight;
 	std::vector<AnimatedSprite> sprites;
+	std::vector<Spider> spiders;
 };
 
