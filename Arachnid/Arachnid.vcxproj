@@ -129,9 +129,9 @@
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)SDL2-2.26.4\lib\x$(PlatformArchitecture)\sdl2.dll" "$(TargetDir)"
-copy "$(SolutionDir)SDL2_image-2.6.3\lib\x$(PlatformArchitecture)\SDL2_image.dll" "$(TargetDir)"
-XCOPY "$(SolutionDir)Resources\Assets" "$(TargetDir)\Assets\" /S /Y</Command>
+      <Command>copy "$(SolutionDir)SDL2\lib\x$(PlatformArchitecture)\sdl2.dll" "$(TargetDir)"
+copy "$(SolutionDir)SDL2_Image\lib\x$(PlatformArchitecture)\sdl2_image.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)Resources" "$(TargetDir)" /Y /R</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -151,6 +151,11 @@ XCOPY "$(SolutionDir)Resources\Assets" "$(TargetDir)\Assets\" /S /Y</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_image.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy "$(SolutionDir)SDL2\lib\x$(PlatformArchitecture)\sdl2.dll" "$(TargetDir)"
+copy "$(SolutionDir)SDL2_Image\lib\x$(PlatformArchitecture)\sdl2_image.dll" "$(TargetDir)"
+xcopy "$(SolutionDir)Resources" "$(TargetDir)" /Y /R</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimatedSprite.cpp" />
