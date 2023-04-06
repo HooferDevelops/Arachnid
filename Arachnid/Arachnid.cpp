@@ -14,13 +14,15 @@ int main(int argc, char* args[])
 	Main.Preload();
 
 	while (true) {
-		Main.Logic();
-		Main.Render();
+		if (SDL_GetTicks64() % 16 == 0) {
+			Main.Logic();
+			Main.Render();
 
-		bool Shutdown = Main.Update();
+			bool Shutdown = Main.Update();
 
-		if (Shutdown) {
-			break;
+			if (Shutdown) {
+				break;
+			}
 		}
 	}
 
