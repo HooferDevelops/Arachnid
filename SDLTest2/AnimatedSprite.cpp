@@ -18,19 +18,13 @@ void AnimatedSprite::SetGridCount(int xC, int yC) {
 	xCount = xC;
 }
 
-void AnimatedSprite::SetPosition(int x, int y) {
+void AnimatedSprite::SetPosition(float x, float y) {
 	xPos = x;
 	yPos = y;
 }
 
 void AnimatedSprite::SetSpeed(int interval) {
 	speed = interval;
-}
-
-void AnimatedSprite::GetPosition(int* x, int* y)
-{
-	x = (int*) xPos;
-	y = (int*) yPos;
 }
 
 void AnimatedSprite::Render() {
@@ -44,8 +38,8 @@ void AnimatedSprite::Render() {
 	};
 
 	SDL_Rect posRect = {
-		xPos,
-		yPos,
+		(int) xPos,
+		(int) yPos,
 		xSize,
 		ySize
 	};

@@ -9,15 +9,14 @@ class AnimatedSprite
 		void Render();
 		void Logic();
 		void SetSize(int x, int y);
-		void SetPosition(int x, int y);
+		void SetPosition(float x, float y);
 		void SetGridCount(int xC, int yC);
 		void SetSpeed(int interval);
-		void GetPosition(int *x, int *y);
+		float xPos;
+		float yPos;
 
 	private:
 		int speed;
-		int xPos;
-		int yPos;
 		int xSize;
 		int ySize;
 		int xCount;
