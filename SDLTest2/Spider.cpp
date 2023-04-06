@@ -80,7 +80,7 @@ void Spider::Logic() {
 		time = offset_start_time;
 	}
 
-	if ((SDL_GetTicks64()) % 100 == 0 && !moving_offset) {
+	if ((start_time + SDL_GetTicks64()) % 10 == 0 && !moving_offset) {
 		starting_x = current_sprite.xPos;
 		starting_y = current_sprite.yPos;
 		offset_x = starting_x + (rand() % 100) - 50;
@@ -102,7 +102,7 @@ void Spider::Logic() {
 		if (moving_offset) {
 			starting_x = current_sprite.xPos;
 			starting_y = current_sprite.yPos;
-			start_time += (SDL_GetTicks64() - offset_start_time);
+			start_time = SDL_GetTicks64();
 			moving_offset = false;
 		}
 

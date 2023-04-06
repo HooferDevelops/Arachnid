@@ -40,7 +40,7 @@ void SDLBase::Preload() {
 	spider.SetPosition(125, 15);
 	spider.SetSpeed(100);
 
-	for (int i = 0; i < 1; i++) {
+	for (int i = 0; i < 150; i++) {
 		Spider test = Spider(renderer);
 
 		spiders.push_back(test);
