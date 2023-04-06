@@ -16,8 +16,11 @@ private:
 	int starting_y;
 	int target_x;
 	int target_y;
+	Uint64 start_time;
+	float walk_speed;
+
 	int offset_x;
 	int offset_y;
-	Uint64 spawn_time;
-	float walk_speed;
+	bool moving_offset;
+	Uint64 offset_start_time;
 };

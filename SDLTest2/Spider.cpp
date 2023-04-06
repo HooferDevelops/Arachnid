@@ -9,7 +9,7 @@ Spider::Spider(SDL_Renderer* renderer) : current_sprite(renderer, "Assets/Spider
 	current_sprite.SetGridCount(4, 4);
 	current_sprite.SetSpeed(200);
 
-	spawn_time = SDL_GetTicks64();
+	start_time = SDL_GetTicks64();
 
 
 	UpdateCurrent();
@@ -68,18 +68,48 @@ void Spider::Logic() {
 
 	SDL_GetGlobalMouseState(&x, &y);
 
-	float lerp =  std::min((float)(SDL_GetTicks64() - spawn_time) / (5000 * walk_speed), 1.0f);
+	float goal_x = target_x;
+	float goal_y = target_y;
+	float travel_time = 5000 * walk_speed;
+	Uint64 time = start_time;
 
-	float final_x = std::lerp(starting_x, target_x, lerp);
-	float final_y = std::lerp(starting_y, target_y, lerp);
+	if (moving_offset) {
+		goal_x = offset_x;
+		goal_y = offset_y;
+		travel_time = 1000;
+		time = offset_start_time;
+	}
+
+	if ((SDL_GetTicks64()) % 100 == 0 && !moving_offset) {
+		starting_x = current_sprite.xPos;
+		starting_y = current_sprite.yPos;
+		offset_x = starting_x + (rand() % 100) - 50;
+		offset_y = starting_y + (rand() % 100) - 50;
+		offset_start_time = SDL_GetTicks64();
+		moving_offset = true;
+
+		return;
+	}
+
+	float lerp =  std::min((float)(SDL_GetTicks64() - time) / (travel_time), 1.0f);
+
+	float final_x = std::lerp(starting_x, goal_x, lerp);
+	float final_y = std::lerp(starting_y, goal_y, lerp);
 
 	current_sprite.SetPosition(final_x, final_y);
 
 	if (lerp == 1) {
-		starting_x = current_sprite.xPos;
+		if (moving_offset) {
+			starting_x = current_sprite.xPos;
+			starting_y = current_sprite.yPos;
+			start_time += (SDL_GetTicks64() - offset_start_time);
+			moving_offset = false;
+		}
+
+		/*starting_x = current_sprite.xPos;
 		starting_y = current_sprite.yPos;
 		
 		spawn_time = SDL_GetTicks64();
-		UpdateTarget();
+		UpdateTarget();*/
 	}
 }
