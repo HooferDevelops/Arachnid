@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{1d083496-bba6-4c17-87c7-881b16a1dac2}</ProjectGuid>
-    <RootNamespace>SDLTest2</RootNamespace>
+    <RootNamespace>Arachnid</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectName>Arachnid</ProjectName>
   </PropertyGroup>
@@ -151,7 +151,7 @@ XCOPY "$(SolutionDir)Resources\Assets" "$(TargetDir)\Assets\" /S /Y</Command>
   <ItemGroup>
     <ClCompile Include="AnimatedSprite.cpp" />
     <ClCompile Include="SDLBase.cpp" />
-    <ClCompile Include="SDLTest2.cpp" />
+    <ClCompile Include="Arachnid.cpp" />
     <ClCompile Include="Spider.cpp" />
   </ItemGroup>
   <ItemGroup>
